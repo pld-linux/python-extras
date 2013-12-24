@@ -1,0 +1,13 @@
+Avoid:
+error: error in setup.cfg: command 'test' has no such option 'buffer'
+error: error in setup.cfg: command 'test' has no such option 'catch'
+--- extras-0.0.3/setup.cfg.orig	2013-01-21 19:26:30.000000000 +0100
++++ extras-0.0.3/setup.cfg	2013-12-24 10:28:33.949039541 +0100
+@@ -1,7 +1,5 @@
+ [test]
+ test_module = extras.tests
+-buffer = 1
+-catch = 1
+ 
+ [egg_info]
+ tag_build = 
