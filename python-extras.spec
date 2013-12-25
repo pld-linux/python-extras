@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_without	tests	# do not perform "make test" (use for extras/testtools pair bootstrap)
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
@@ -13,13 +13,10 @@ License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/e/extras/extras-%{version}.tar.gz
 # Source0-md5:	62d8ba049e3386a6df69b413ea81517b
-Patch0:		%{name}-test.patch
 URL:		https://github.com/testing-cabal/extras
 BuildRequires:	python-distribute
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-# when python3 present
-#BuildRequires:	sed >= 4.0
 %if %{with python3}
 BuildRequires:	python3-distribute
 %endif
@@ -63,7 +60,6 @@ później wydzielony do ogólnego użytku, nie tylko w kontekście testów.
 
 %prep
 %setup -q -n extras-%{version}
-%patch0 -p1
 
 %build
 %if %{with python2}
