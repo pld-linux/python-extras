@@ -16,7 +16,7 @@ Source0:	https://pypi.python.org/packages/source/e/extras/extras-%{version}.tar.
 URL:		https://github.com/testing-cabal/extras
 BuildRequires:	python-distribute
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python3}
 BuildRequires:	python3-distribute
 %endif
