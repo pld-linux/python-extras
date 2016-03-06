@@ -11,24 +11,27 @@ Version:	0.0.3
 Release:	6
 License:	MIT
 Group:		Libraries/Python
+#Source0Download: https://pypi.python.org/simple/extras/
 Source0:	https://pypi.python.org/packages/source/e/extras/extras-%{version}.tar.gz
 # Source0-md5:	62d8ba049e3386a6df69b413ea81517b
 URL:		https://github.com/testing-cabal/extras
-BuildRequires:	python-distribute
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.710
-%if %{with python3}
-BuildRequires:	python3-distribute
-%endif
-%if %{with tests}
+BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
+BuildRequires:	python-modules >= 1:2.6
+BuildRequires:	python-setuptools
+%if %{with tests}
 BuildRequires:	python-testtools
 %endif
+%endif
 %if %{with python3}
+BuildRequires:	python3-modules >= 1:3.2
+BuildRequires:	python3-setuptools
+%if %{with tests}
 BuildRequires:	python3-testtools
 %endif
 %endif
-Requires:	python-modules
+Requires:	python-modules >= 1:2.6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,7 +49,7 @@ później wydzielony do ogólnego użytku, nie tylko w kontekście testów.
 Summary:	Useful extra bits for Python - things that should be in the standard library
 Summary(pl.UTF-8):	Przydatne dodatki do Pythona, które powinny być w bibliotece standardowej
 Group:		Libraries/Python
-Requires:	python3-modules
+Requires:	python3-modules >= 1:3.2
 
 %description -n python3-extras
 extras is a set of extensions to the Python standard library,
@@ -63,15 +66,11 @@ później wydzielony do ogólnego użytku, nie tylko w kontekście testów.
 
 %build
 %if %{with python2}
-%{__python} setup.py \
-	build --build-base build-2 \
-	%{?with_tests:test}
+%py_build %{?with_tests:test}
 %endif
 
 %if %{with python3}
-%{__python3} setup.py \
-	build --build-base build-3 \
-	%{?with_tests:test}
+%py3_build %{?with_tests:test}
 %endif
 
 %install
