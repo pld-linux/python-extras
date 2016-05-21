@@ -7,13 +7,13 @@
 Summary:	Useful extra bits for Python - things that should be in the standard library
 Summary(pl.UTF-8):	Przydatne dodatki do Pythona, które powinny być w bibliotece standardowej
 Name:		python-extras
-Version:	0.0.3
-Release:	6
+Version:	1.0.0
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/extras/
-Source0:	https://pypi.python.org/packages/source/e/extras/extras-%{version}.tar.gz
-# Source0-md5:	62d8ba049e3386a6df69b413ea81517b
+Source0:	https://pypi.python.org/packages/be/18/0b7283f0ebf6ad4bb6b9937538495eadf05ef097b102946b9445c4242636/extras-%{version}.tar.gz
+# Source0-md5:	3a63ad60cf8f0186c9e3a02f55ec5b14
 URL:		https://github.com/testing-cabal/extras
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
