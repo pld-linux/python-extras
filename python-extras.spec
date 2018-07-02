@@ -8,7 +8,7 @@ Summary:	Useful extra bits for Python - things that should be in the standard li
 Summary(pl.UTF-8):	Przydatne dodatki do Pythona, które powinny być w bibliotece standardowej
 Name:		python-extras
 Version:	1.0.0
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/extras/
