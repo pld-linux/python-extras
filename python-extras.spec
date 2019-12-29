@@ -11,8 +11,8 @@ Version:	1.0.0
 Release:	4
 License:	MIT
 Group:		Libraries/Python
-#Source0Download: https://pypi.python.org/simple/extras/
-Source0:	https://pypi.python.org/packages/be/18/0b7283f0ebf6ad4bb6b9937538495eadf05ef097b102946b9445c4242636/extras-%{version}.tar.gz
+#Source0Download: https://pypi.org/simple/extras/
+Source0:	https://files.pythonhosted.org/packages/source/e/extras/extras-%{version}.tar.gz
 # Source0-md5:	3a63ad60cf8f0186c9e3a02f55ec5b14
 URL:		https://github.com/testing-cabal/extras
 BuildRequires:	rpm-pythonprov
@@ -66,11 +66,19 @@ później wydzielony do ogólnego użytku, nie tylko w kontekście testów.
 
 %build
 %if %{with python2}
-%py_build %{?with_tests:test}
+%py_build
+
+%if %{with tests}
+%{__python} -m unittest discover -s extras.tests
+%endif
 %endif
 
 %if %{with python3}
-%py3_build %{?with_tests:test}
+%py3_build
+
+%if %{with tests}
+%{__python3} -m unittest discover -s extras.tests
+%endif
 %endif
 
 %install
